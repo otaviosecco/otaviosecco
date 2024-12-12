@@ -1,5 +1,3 @@
-# **Currículo de [Seu Nome]**
-
 ## 🎓 **Educação**
 
 ### Universidade Federal do Rio Grande do Sul (UFRGS) – Porto Alegre, RS  
