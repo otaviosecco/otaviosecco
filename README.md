@@ -10,25 +10,13 @@ _Novembro de 2022 – Atualidade_
 - Implementação de um sistema de iluminação dinâmica para simular o raio de visão e alcance em terrenos desnivelados.
   
 **Projetos em Andamento:**
+*Projeto do Mestrado:*
 - Desenvolvimento de uma aplicação em Realidade Virtual com Unity3D, utilizando dados de captura de movimento de uma partida de futebol para o treinamento de atletas.
-
-**Disciplinas Relevantes:**
-- Fundamentos de Visão Computacional
-- Visualização de Dados Imersiva
 
 ---
 
 ### Universidade Federal da Fronteira Sul (UFFS) – Chapecó, SC  
-**Bacharel em Ciência da Computação**  
-_2017 – 2022_
-
-**Projetos:**
-- Criação de aplicações gráficas utilizando OpenGL e JavaScript.
-- Participação ativa em grupo de estudos focado em Modelagem e Impressão 3D.
-
-**Trabalho de Conclusão de Curso:**
-- Implementação de técnica *Fractional Brownian Motion* combinada com ruídos do *Perlin Noise* para geração de terrenos procedurais utilizando Unity3D.
-
+**Bacharel em Ciência da Computação**  _2017 – 2022_
 
 ## 🛠 **Qualificações**
 
