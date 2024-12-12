@@ -44,6 +44,6 @@ _2017 – 2022_
 
 ## 📧 **Contatos**
 
-- **LinkedIn:** [Seu Link do LinkedIn](https://www.linkedin.com/in/otávio-secco-600836155)
+- **LinkedIn:** [Meu Linkedin :)](https://www.linkedin.com/in/otávio-secco-600836155)
 
 ---
