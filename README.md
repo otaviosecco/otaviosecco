@@ -1,3 +1,17 @@
+## About Me
+
+Sou mestrando em Computação na Universidade Federal do Rio Grande do Sul. Sou um entusiasta de vídeo games, esportes e análise de dados de esportes e também, provavelmente o MAIOR fã dos trabalhos de J.R.R. Tolkien que existe.
+
+Cursei Ciência da Computação na Universidade Federal da Fronteira Sul em Chapecó - SC.
+
+Sou um cara muito bem humorado (até demais) e nunca perco a oportunidade de mostrar um sorriso e dar uma risada.
+
+Falo Português nativamente.
+
+Sou Fluente em Inglês.
+
+Não fujo de um desafio, estou aberto à oportunidades não tenho medo de nenhuma linguagem, tecnologia ou conceito desconhecido, mas de barata sim.
+
 ## 🎓 **Educação**
 
 ### Universidade Federal do Rio Grande do Sul (UFRGS) – Porto Alegre, RS  
