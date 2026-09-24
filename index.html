@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -157,14 +159,6 @@
 									</div>
 								</div>
 							</div>
-							<div class="row">
-								<div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
-									<div class="hire">
-										<h2>Estou aberto à oportunidades!</h2>
-										<a href="#" class="btn-hire">Contrate-me</a>
-									</div>
-								</div>
-						</div>
 						</div>
 					</div>
 				</div>
@@ -223,26 +217,29 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-							<div class="project" style="background-image: url(images/mocap-retargeting.png); background-size: contain; background-repeat: no-repeat; background-color: #1f1f1f;">
-								<div class="desc">
-									<div class="con">
-										<h3>Retargeting e IK para personagens 3D</h3>
-										<span>Aplicação de retargeting e cinemática inversa (IK) para transferir dados de captura de movimento a personagens 3D, preservando poses e movimentos.</span>
+						{% assign personal_projects = site.pages | where: "layout", "project" | sort: "order" %}
+						{% for personal_project in personal_projects %}
+							{% assign project_images_path = personal_project.url | append: 'imgs/' %}
+							{% assign project_cover = nil %}
+							{% for image in site.static_files %}
+								{% if image.path contains project_images_path %}
+									{% assign project_cover = image %}
+									{% break %}
+								{% endif %}
+							{% endfor %}
+							<div class="col-md-6 animate-box" data-animate-effect="{% cycle 'fadeInLeft', 'fadeInRight' %}">
+								<a class="project-link" href="{{ personal_project.url | relative_url }}">
+									<div class="project"{% if project_cover %} style="background-image: url({{ project_cover.path | relative_url }}); background-size: contain; background-repeat: no-repeat; background-color: #1f1f1f;"{% endif %}>
+										<div class="desc">
+											<div class="con">
+												<h3>{{ personal_project.title }}</h3>
+												<span>{{ personal_project.description }}</span>
+											</div>
+										</div>
 									</div>
-								</div>
+								</a>
 							</div>
-						</div>
-						<div class="col-md-6 animate-box" data-animate-effect="fadeInRight">
-							<div class="project" style="background-image: url(images/footstep-detection.png); background-size: contain; background-repeat: no-repeat; background-color: #1f1f1f;">
-								<div class="desc">
-									<div class="con">
-										<h3>Identificação de passos</h3>
-										<span>Detecção automática de passos a partir da velocidade angular dos dados de captura de movimento, identificando eventos ao longo da trajetória do atleta.</span>
-									</div>
-								</div>
-							</div>
-						</div>
+						{% endfor %}
 					</div>
 						<!--	<div class="col-md-6 animate-box" data-animate-effect="fadeInTop">
 							<div class="project" style="background-image: url(images/img-3.jpg);">
@@ -322,7 +319,7 @@
 						</div>
 					</div>
 					
-					<div class="row row-pt-md">
+					<div class="row row-pt-md services-grid">
 						<div class="col-md-4 text-center animate-box">
 							<div class="services color-1">
 								<span class="icon">
