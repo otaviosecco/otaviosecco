@@ -1,9 +1,9 @@
 ---
 layout: project
-title: Análise de movimento no futebol com mocap
+title: Visualização de dados de captura de movimento 3D com Unity
 description: Retargeting, cinemática inversa e identificação de passos em dados de captura de movimento.
 order: 1
-permalink: /projetos-pessoais/mocap-futebol/
+permalink: /projetos-pessoais/mocap/
 ---
 
 # Análise de movimento no futebol com mocap
@@ -11,6 +11,7 @@ permalink: /projetos-pessoais/mocap-futebol/
 ## Visão geral
 
 Projeto pessoal para aplicar dados de captura de movimento à animação e à análise de atletas em um ambiente 3D.
+Basicamente cobre uma lacuna da minha dissertação de mestrado, na qual eu não fiz essa animação 3D, apenas renderizei os pontos das articulações e liguei com uma linha, fazendo bonecos palitos. Isso ficou na minha cabeça, como resolver?
 
 ## Retargeting e IK para personagens 3D
 
