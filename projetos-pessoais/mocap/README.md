@@ -6,7 +6,7 @@ order: 1
 permalink: /projetos-pessoais/mocap/
 ---
 
-# Análise de movimento no futebol com mocap
+# Visualização de dados de captura de movimento 3D com Unity
 
 ## Visão geral
 
