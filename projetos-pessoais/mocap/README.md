@@ -11,15 +11,16 @@ permalink: /projetos-pessoais/mocap/
 ## Visão geral
 
 Projeto pessoal para aplicar dados de captura de movimento à animação e à análise de atletas em um ambiente 3D.
+
 Basicamente cobre uma lacuna da minha dissertação de mestrado, na qual eu não fiz essa animação 3D, apenas renderizei os pontos das articulações e liguei com uma linha, fazendo bonecos palitos. Isso ficou na minha cabeça, como resolver?
 
 ## Retargeting e IK para personagens 3D
 
-O retargeting transfere o movimento capturado para personagens com diferentes proporções e estruturas de esqueleto. A cinemática inversa (IK) complementa esse processo, ajustando os membros e preservando o contato corporal esperado.
+O retargeting transfere o movimento capturado para personagens com diferentes proporções e estruturas de esqueleto. É utilizado o template humanoid no modelo da Unity para que seja possível adaptar as medidas do corpo padrão às medidas do mocap.
 
 - Leitura dos dados de captura de movimento.
 - Mapeamento entre o esqueleto capturado e o personagem 3D.
-- Aplicação de IK para corrigir a posição dos membros.
+- Aplicação de IK para corrigir a posição dos membros. * em testes, aparentemente essa aplicação é mais útil para quando faltam articulações ou posições
 - Avaliação visual do movimento transferido.
 
 ## Identificação de passos por velocidade angular
@@ -30,3 +31,4 @@ A velocidade angular dos dados de mocap é utilizada para detectar eventos de pa
 - Identificação dos instantes relacionados a cada passo.
 - Marcação dos eventos ao longo da trajetória do atleta.
 - Visualização dos passos detectados no ambiente 3D.
+- Futuramente pode-se usar isso como notação automática para treino de RN?!
