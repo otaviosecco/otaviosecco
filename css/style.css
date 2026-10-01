@@ -14,12 +14,12 @@
 body {
   font-family: "Quicksand", Arial, sans-serif;
   font-weight: 400;
-  font-size: 15px;
+  font-size: 17px;
   line-height: 1.8;
   color: rgba(0, 0, 0, 0.7); }
   @media screen and (max-width: 992px) {
     body {
-      font-size: 16px; } }
+      font-size: 17px; } }
 
 a {
   color: #2c98f0;
@@ -397,6 +397,14 @@ body.offcanvas {
       padding-top: 5em;
       padding-bottom: 8em; } }
 
+.colorlib-about,
+.colorlib-experience {
+  padding-bottom: 2em; }
+
+.colorlib-work,
+.colorlib-contact {
+  padding-top: 2em; }
+
 .author-img {
   background-size: cover;
   background-position: center center;
@@ -404,7 +412,7 @@ body.offcanvas {
   position: relative; }
 
 .colorlib-heading {
-  font-size: 18px;
+  font-size: 22px;
   margin-bottom: 4em;
   font-weight: 700;
   text-transform: uppercase;
@@ -420,7 +428,7 @@ body.offcanvas {
 .heading-meta {
   margin-bottom: 15px;
   display: block;
-  font-size: 10px;
+  font-size: 11px;
   text-transform: uppercase;
   color: #999999;
   font-weight: 500;
@@ -618,7 +626,7 @@ body.offcanvas {
       color: #2c98f0; }
   .services h3 {
     font-family: "Quicksand", Arial, sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 500; }
   .services.color-2 {
     border-bottom: 2px solid #ec5453; }
@@ -700,7 +708,7 @@ body.offcanvas {
   .services .desc {
     margin-top: 60px; }
     .services .desc h3 {
-      font-size: 16px;
+      font-size: 18px;
       font-weight: 700;
       text-transform: uppercase; }
   .services.color-2 .icon {
