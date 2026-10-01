@@ -14,12 +14,12 @@
 body {
   font-family: "Quicksand", Arial, sans-serif;
   font-weight: 400;
-  font-size: 17px;
+  font-size: 15px;
   line-height: 1.8;
   color: rgba(0, 0, 0, 0.7); }
   @media screen and (max-width: 992px) {
     body {
-      font-size: 17px; } }
+      font-size: 16px; } }
 
 a {
   color: #2c98f0;
@@ -235,7 +235,8 @@ figure {
   background: #fff url(../images/loader.gif) no-repeat center center;
   width: 100%;
   float: left;
-  margin-bottom: 10em;
+  margin-bottom: 2em;
+  overflow: hidden;
   clear: both; }
   #colorlib-hero .flexslider {
     border: none;
@@ -243,11 +244,12 @@ figure {
     margin-bottom: 0; }
     #colorlib-hero .flexslider .slides {
       position: relative;
-      overflow: visible; }
+      overflow: hidden; }
       #colorlib-hero .flexslider .slides li {
         background-repeat: no-repeat;
-        background-size: cover;
-        background-position: bottom center;
+        background-size: contain;
+        background-position: center center;
+        background-color: #fff;
         min-height: 400px;
         position: relative; }
     #colorlib-hero .flexslider .flex-control-nav {
@@ -287,9 +289,15 @@ figure {
         min-height: 700px;
         padding: 2.5em;
         position: relative; }
+        #colorlib-hero .flexslider .slider-text > .slider-text-inner .desc {
+          max-width: 380px;
+          padding: 1.75em;
+          background: rgba(255, 255, 255, 0.9); }
         @media screen and (max-width: 768px) {
           #colorlib-hero .flexslider .slider-text > .slider-text-inner {
-            text-align: center; } }
+            text-align: center; }
+            #colorlib-hero .flexslider .slider-text > .slider-text-inner .desc {
+              margin: 0 auto; } }
         #colorlib-hero .flexslider .slider-text > .slider-text-inner h1, #colorlib-hero .flexslider .slider-text > .slider-text-inner h2 {
           margin: 0;
           padding: 0;
@@ -404,6 +412,14 @@ body.offcanvas {
 .colorlib-work,
 .colorlib-contact {
   padding-top: 2em; }
+
+.colorlib-about,
+.colorlib-work,
+.colorlib-services,
+.colorlib-education,
+.colorlib-experience,
+.colorlib-contact {
+  font-size: 17px; }
 
 .author-img {
   background-size: cover;
