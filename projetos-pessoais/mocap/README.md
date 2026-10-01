@@ -1,7 +1,7 @@
 ---
 layout: project
 title: Visualização de dados de captura de movimento 3D com Unity
-description: Retargeting, cinemática inversa e identificação de passos em dados de captura de movimento.
+description: Retargeting, cinemática inversa e identificação de passos em dados de captura de movimento. Basicamente cobre uma lacuna da minha dissertação de mestrado, na qual eu não fiz essa animação 3D, apenas renderizei os pontos das articulações e liguei com uma linha, fazendo bonecos palitos. Isso ficou na minha cabeça, como resolver?
 order: 1
 permalink: /projetos-pessoais/mocap/
 ---
