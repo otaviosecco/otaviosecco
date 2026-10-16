@@ -13,7 +13,9 @@
     <div>
       <p class="eyebrow">BRA1 · 2013–2018</p>
       <h1>Explorador PSxG</h1>
-      <p class="intro">Mova o cursor pelo campo. O gol mostra a probabilidade prevista para cada destino da finalização.</p>
+      <p class="intro">Durante 2023 quando eu estava fazendo o projeto de Visualização de Eventos de Futebol, me deparei com vasta literatura sobre modelos de xG, e como regressão logística era usada para estimar os valores das probabilidades das finalizações resultarem em gol. Sempre tive interesse em treinar o meu modelo para isso, com os dados do campeonato brasileiro de 2013-2018 consgui fazer o meu modelo.
+      A questão é que o xG por si só não mostra a qualidade da finalização em si, apenas a qualidade da chance criada, então pra isso existe o xGoT ou PSxG, que, dado um ponto no campo e o ponto final da finalização tu consegue ai sim estimar a qualidade dela. então, dado o heatmap fixo de xG abaixo, mova o cursor pelo campo. O gol mostra a probabilidade prevista para cada destino da finalização. 
+    O que mais me deixou curioso com isso é, se o jogador treinasse sabendo desse heatmap de "onde mirar" será que as finalizações dele melhorariam também?</p>
     </div>
     <div id="model-status" class="status" role="status" aria-live="polite">Carregando modelo…</div>
   </header>
@@ -106,7 +108,10 @@
   </main>
 
   <footer>
-    PSxG por regressão logística · xG agregado com escala de 0 ao máximo · 44.088 finalizações PSxG
+    <p>PSxG por regressão logística · xG agregado com escala de 0 ao máximo · 44.088 finalizações PSxG.</p>
+    <p>Esta amostra é pequena e antiga, portanto pode não representar o futebol atual. Para investigar se a qualidade das finalizações mudou ao longo dos anos, comparei modelos globais e modelos específicos por temporada. Os resultados sugerem que ela aumentou:</p>
+    <p><a class="article-link" href="../analise-dados-esportivos/11_xg_medio_por_temporada.png" target="_blank" rel="noopener noreferrer">Ver o gráfico de xG médio por temporada <span aria-hidden="true">↗</span></a></p>
+    <p>Por isso, modelos treinados com dados mais recentes podem produzir valores diferentes.</p>
   </footer>
 
   <script src="app.js" defer></script>
