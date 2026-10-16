@@ -49,7 +49,7 @@ li { margin: 7px 0; }
 .visual-vr { background-image: url("../images/img-1.jpg"); }
 .visual-sandbox { background-image: url("../images/img-2.jpg"); }
 .visual-data { background-image: url("../images/img-3.jpg"); }
-.visual-psxg { background-image: linear-gradient(145deg, #08120f, #16603d 48%, #baf36d); }
+.visual-psxg { background-image: url("../images/visualizacao-psxg.png"); }
 .visual-personal { background-color: #314144; background-image: linear-gradient(135deg, #26363a, #638e92); }
 .visual-segmentation { background-image: linear-gradient(135deg, #182d21, #477148 54%, #a6b775); }
 .project-meta { padding: 16px 2px 0; }
