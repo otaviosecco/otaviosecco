@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Visualização interativa de eventos e redes de passes de uma partida de futebol.">
+  <title>Análise visual de partidas | Otávio Secco</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="back-link" href="../../">&larr; Voltar ao portfólio</a>
+
+  <header class="page-header">
+    <div>
+      <p class="eyebrow">Visualização de informações</p>
+      <h1>Análise visual de partidas</h1>
+      <p class="intro">Explore eventos e redes de passes por período, equipe, tipo de evento e contato com a bola.</p>
+    </div>
+    <div class="header-actions">
+      <a class="article-link" href="artigo-visualizacao-informacoes.pdf" target="_blank" rel="noopener noreferrer">Ler artigo (PDF) <span>↗</span></a>
+      <div id="status" class="status" role="status" aria-live="polite">Carregando partida…</div>
+    </div>
+  </header>
+
+  <main>
+    <section class="filters" aria-labelledby="filters-title">
+      <div class="filters-heading">
+        <div>
+          <p class="section-kicker">Controles</p>
+          <h2 id="filters-title">Recorte da análise</h2>
+        </div>
+        <button id="reset-filters" class="text-button" type="button">Restaurar filtros</button>
+      </div>
+
+      <div class="filter-grid">
+        <fieldset class="minute-filter">
+          <legend>Intervalo de tempo</legend>
+          <div class="minute-values"><strong id="minute-start-value">0'</strong><span>até</span><strong id="minute-end-value">100'</strong></div>
+          <div id="minute-range" class="range-slider">
+            <div class="range-track"><div class="range-selection"></div></div>
+            <label><span>Minuto inicial</span><input id="minute-start" type="range" min="0" max="100" value="0"></label>
+            <label><span>Minuto final</span><input id="minute-end" type="range" min="0" max="100" value="100"></label>
+          </div>
+        </fieldset>
+
+        <label class="control-label" for="touch-filter">Tipo de toque
+          <select id="touch-filter">
+            <option value="all">Ambos</option>
+            <option value="true">É toque</option>
+            <option value="false">Não é toque</option>
+          </select>
+        </label>
+
+        <label class="control-label" for="team-filter">Time selecionado
+          <select id="team-filter">
+            <option value="all">Todos os times</option>
+          </select>
+        </label>
+
+        <details class="event-filter">
+          <summary>Tipos de evento <span id="event-filter-summary">Todos</span></summary>
+          <div class="event-filter-actions">
+            <button id="select-all-events" type="button">Todos</button>
+            <button id="clear-events" type="button">Limpar</button>
+          </div>
+          <div id="event-type-options" class="event-type-options"></div>
+        </details>
+      </div>
+    </section>
+
+    <section class="summary" aria-label="Resumo do recorte">
+      <div><span>Partida</span><strong id="match-name">—</strong></div>
+      <div><span>Eventos</span><strong id="event-count">—</strong></div>
+      <div><span>Passes certos</span><strong id="pass-count">—</strong></div>
+      <div><span>Jogadores</span><strong id="player-count">—</strong></div>
+    </section>
+
+    <section class="networks" aria-labelledby="networks-title">
+      <div class="networks-heading">
+        <div>
+          <p class="section-kicker">Rede de passes</p>
+          <h2 id="networks-title">Estrutura posicional</h2>
+        </div>
+        <p>Posição média por jogador. Espessura da aresta indica passes trocados; tamanho do nó indica envolvimento.</p>
+      </div>
+      <div id="network-grid" class="network-grid"></div>
+    </section>
+
+    <section class="panel event-panel" aria-labelledby="events-title">
+      <div class="panel-heading">
+        <div>
+          <p class="section-kicker">Mapa de eventos</p>
+          <h2 id="events-title">Ações no campo</h2>
+        </div>
+        <div id="team-legend" class="team-legend"></div>
+      </div>
+      <div class="pitch-wrap">
+        <svg id="events-pitch" class="pitch" viewBox="0 0 1050 680" role="img" aria-label="Mapa dos eventos filtrados na partida"></svg>
+        <div id="tooltip" class="tooltip" hidden></div>
+      </div>
+      <p class="hint">Setas representam passes; pontos representam todos os eventos filtrados. Passe o cursor para ver detalhes.</p>
+    </section>
+  </main>
+
+  <footer>Reimplementação em JavaScript do projeto FootballVisualization.</footer>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
