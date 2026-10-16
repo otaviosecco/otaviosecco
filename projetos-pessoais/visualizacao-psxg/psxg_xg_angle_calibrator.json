@@ -1,0 +1,71 @@
+{
+  "model_type": "monotonic_logistic_calibration",
+  "features": [
+    "logit_psxg",
+    "logit_xg",
+    "angle_fraction"
+  ],
+  "mean": [
+    -8.522682905907077,
+    -2.5907029521008114,
+    0.13358261051869968
+  ],
+  "scale": [
+    6.175510314859206,
+    0.9722703649844494,
+    0.08765467291961172
+  ],
+  "intercept": -7.305671976146582,
+  "coefficients": [
+    4.958874131345647,
+    0.4786701703954466,
+    9.544071724109889e-05
+  ],
+  "coefficient_constraints": "non_negative",
+  "iterations": 10,
+  "l2": 0.0001,
+  "training_rows": 44088,
+  "training_seasons": [
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018
+  ],
+  "evaluation": {
+    "strategy": "train_2013_2017_test_2018",
+    "training_rows": 36773,
+    "test_rows": 7315,
+    "test_season": 2018,
+    "metrics": {
+      "psxg_original": {
+        "roc_auc": 0.9530388661087256,
+        "average_precision": 0.6706306482683805,
+        "brier_score": 0.053272991427937406,
+        "log_loss": 0.165828538985743,
+        "accuracy": 0.9233082706766917
+      },
+      "psxg_sqrt_xg": {
+        "roc_auc": 0.9540770345989578,
+        "average_precision": 0.6982705844675794,
+        "brier_score": 0.06936566822618064,
+        "log_loss": 0.21154490392060654,
+        "accuracy": 0.896514012303486
+      },
+      "psxg_xg_angle_calibrated": {
+        "roc_auc": 0.954644041700376,
+        "average_precision": 0.702280969872595,
+        "brier_score": 0.05169474254022363,
+        "log_loss": 0.16194109222035352,
+        "accuracy": 0.9264524948735475
+      }
+    },
+    "accepted": true,
+    "acceptance_rule": "lower_test_log_loss_and_brier_than_original_and_sqrt"
+  },
+  "base_models": {
+    "psxg": "artifacts/psxg/models/psxg_logistic.joblib",
+    "xg": "artifacts/models/xg_all.joblib"
+  }
+}

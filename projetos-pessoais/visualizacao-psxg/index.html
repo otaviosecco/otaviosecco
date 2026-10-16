@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explorador interativo do modelo PSxG do Brasileirão.">
+  <title>Explorador PSxG</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="back-link" href="../../">&larr; Voltar ao portfólio</a>
+  <header class="page-header">
+    <div>
+      <p class="eyebrow">BRA1 · 2013–2018</p>
+      <h1>Explorador PSxG</h1>
+      <p class="intro">Mova o cursor pelo campo. O gol mostra a probabilidade prevista para cada destino da finalização.</p>
+    </div>
+    <div id="model-status" class="status" role="status" aria-live="polite">Carregando modelo…</div>
+  </header>
+
+  <section class="shot-filters" aria-label="Filtros das finalizações observadas">
+    <div class="filter-cluster">
+      <span class="filter-label">Temporada</span>
+      <div class="segmented-control" id="season-filter">
+        <button type="button" data-season="all" aria-pressed="true" disabled>Todas</button>
+        <button type="button" data-season="2013" aria-pressed="false" disabled>2013</button>
+        <button type="button" data-season="2014" aria-pressed="false" disabled>2014</button>
+        <button type="button" data-season="2015" aria-pressed="false" disabled>2015</button>
+        <button type="button" data-season="2016" aria-pressed="false" disabled>2016</button>
+        <button type="button" data-season="2017" aria-pressed="false" disabled>2017</button>
+      </div>
+    </div>
+    <div class="filter-cluster">
+      <span class="filter-label">Finalizações</span>
+      <div class="segmented-control" id="outcome-filter">
+        <button type="button" data-outcome="all" aria-pressed="false" disabled>Todos</button>
+        <button type="button" data-outcome="goal" aria-pressed="false" disabled>Gols</button>
+        <button type="button" data-outcome="saved" aria-pressed="false" disabled>Defendidas</button>
+        <button type="button" data-outcome="missed" aria-pressed="false" disabled>Para fora</button>
+        <button type="button" data-outcome="post" aria-pressed="false" disabled>Na trave</button>
+        <button type="button" data-outcome="blocked" aria-pressed="false" disabled>Bloqueadas</button>
+        <button type="button" data-outcome="none" aria-pressed="true" disabled>Nenhum</button>
+      </div>
+    </div>
+    <p class="shot-filter-summary"><strong id="shots-count">0</strong> pontos · área da bola proporcional ao xG</p>
+  </section>
+
+  <main class="workspace">
+    <section class="panel field-panel" aria-labelledby="field-title">
+      <div class="panel-heading">
+        <div>
+          <p class="panel-kicker">Origem</p>
+          <h2 id="field-title">Posição da finalização</h2>
+        </div>
+        <div class="coordinate-readout" aria-live="polite">
+          <span>x <strong id="origin-x">89,52</strong></span>
+          <span>y <strong id="origin-y">50,00</strong></span>
+          <span>xG <strong id="xg-value">—</strong></span>
+        </div>
+      </div>
+      <canvas id="field-canvas" width="525" height="680" aria-label="Meio-campo ofensivo interativo"></canvas>
+      <div class="legend field-legend" aria-label="Escala de xG de zero ao maior valor da grade">
+        <span>xG&nbsp; 0</span>
+        <div class="legend-gradient"></div>
+        <span id="xg-scale-max">—</span>
+      </div>
+      <p class="hint">Passe o mouse ou arraste pelo campo para mudar a origem. Camada xG de 0 ao máximo da grade, com ações anteriores zeradas.</p>
+    </section>
+
+    <section class="panel goal-panel" aria-labelledby="goal-title">
+      <div class="panel-heading">
+        <div>
+          <p class="panel-kicker">Projeção</p>
+          <h2 id="goal-title">PSxG em toda a baliza</h2>
+        </div>
+        <div class="goal-controls">
+          <div class="metric">
+            <span id="max-psxg-label">Maior PSxG</span>
+            <strong id="max-psxg">—</strong>
+          </div>
+          <label class="quality-toggle" title="Calibra o PSxG com o xG e o ângulo da finalização">
+            <input id="xg-adjustment" type="checkbox" aria-controls="calibration-explanation" disabled>
+            <span>
+              Calibrar com xG
+              <small>xG + ângulo</small>
+            </span>
+          </label>
+        </div>
+      </div>
+      <div id="calibration-explanation" class="calibration-explanation" hidden>
+        <strong>Como interpretar o modo calibrado:</strong>
+        <ul>
+          <li><strong>Estimativa:</strong> combina o destino da bola com o xG e o ângulo da finalização.</li>
+          <li><strong>Ângulo e decisão:</strong> ângulos fechados reduzem a probabilidade; valores baixos desencorajam a finalização naquele ponto.</li>
+          <li><strong>Limitação da amostra:</strong> a calibração usa cinco temporadas do Brasileirão (2013–2017). Há apenas quatro chutes abaixo de 1°, três deles gols; probabilidades altas nesses extremos podem refletir poucos casos atípicos.</li>
+        </ul>
+      </div>
+      <canvas id="goal-canvas" width="960" height="280" aria-label="Mapa de calor PSxG na baliza"></canvas>
+      <div class="legend" aria-label="Escala fixa de probabilidade PSxG de zero a um">
+        <span>0</span>
+        <div class="legend-gradient"></div>
+        <span>1</span>
+      </div>
+      <p id="goal-readout" class="hint">Passe o mouse no gol para consultar uma célula.</p>
+    </section>
+  </main>
+
+  <footer>
+    PSxG por regressão logística · xG agregado com escala de 0 ao máximo · 44.088 finalizações PSxG
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
