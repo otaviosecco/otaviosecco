@@ -10,7 +10,7 @@ permalink: /projetos-pessoais/segmentacao-semantica/
 
 ## Sobre o trabalho
 
-Este trabalho, desenvolvido em paseria de Jerson Geraldo Neto UFRGS, investiga a identificação de áreas com e sem vegetação em imagens de satélite. A proposta combina os algoritmos *watershed* e *region growing* para atualizar informações de cobertura vegetal sem depender de um grande conjunto de imagens para treinamento.
+Este trabalho, desenvolvido em conjunto com Jerson Geraldo Neto, duante o perído de mestrado na UFRGS, investiga a identificação de áreas com e sem vegetação em imagens de satélite. A proposta combina os algoritmos *watershed* e *region growing* para atualizar informações de cobertura vegetal sem depender de um grande conjunto de imagens para treinamento.
 
 **[Baixar o artigo completo (.doc)](artigo-segmentacao-semantica.doc)**
 

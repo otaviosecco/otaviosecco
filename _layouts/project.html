@@ -23,12 +23,40 @@
 					{% for image in site.static_files %}
 						{% if image.path contains images_path %}
 							<figure>
-								<img src="{{ image.path | relative_url }}" alt="Imagem do projeto {{ page.title }}" loading="lazy">
+								<button class="gallery-open" type="button" aria-label="Ampliar imagem do projeto {{ page.title }}">
+									<img src="{{ image.path | relative_url }}" alt="Imagem do projeto {{ page.title }}" loading="lazy">
+								</button>
 							</figure>
 						{% endif %}
 					{% endfor %}
 				</div>
 			</section>
 		</main>
+		<dialog class="gallery-lightbox" aria-label="Imagem ampliada">
+			<button class="gallery-close" type="button" aria-label="Fechar imagem ampliada">&times;</button>
+			<img src="" alt="">
+		</dialog>
+		<script>
+			const lightbox = document.querySelector('.gallery-lightbox');
+			const lightboxImage = lightbox.querySelector('img');
+
+			document.querySelectorAll('.gallery-open').forEach(button => {
+				button.addEventListener('click', () => {
+					const image = button.querySelector('img');
+					lightboxImage.src = image.src;
+					lightboxImage.alt = image.alt;
+					lightbox.showModal();
+				});
+			});
+
+			lightbox.querySelector('.gallery-close').addEventListener('click', () => lightbox.close());
+			lightbox.addEventListener('click', event => {
+				if (event.target === lightbox) lightbox.close();
+			});
+			lightbox.addEventListener('close', () => {
+				lightboxImage.src = '';
+				lightboxImage.alt = '';
+			});
+		</script>
 	</body>
 </html>
