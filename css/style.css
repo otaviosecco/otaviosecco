@@ -51,7 +51,7 @@ li { margin: 7px 0; }
 .visual-data { background-color: #07110e; background-image: url("../images/analise-visual-partidas.png"); background-size: contain; }
 .visual-psxg { background-image: url("../images/visualizacao-psxg.png"); }
 .visual-personal { background-color: #314144; background-image: linear-gradient(135deg, #26363a, #638e92); }
-.visual-segmentation { background-image: linear-gradient(135deg, #182d21, #477148 54%, #a6b775); }
+.visual-segmentation { background-image: url("../images/segmentacao-semantica.png"); }
 .project-meta { padding: 16px 2px 0; }
 .project-meta p { color: var(--accent); font-family: "DM Mono", monospace; font-size: 10px; letter-spacing: .08em; margin-bottom: 7px; text-transform: uppercase; }
 .project-meta h3 { font-size: 19px; margin: 0; }
