@@ -47,6 +47,7 @@ li { margin: 7px 0; }
 .project-visual:after { background: rgba(84,180,189,.78); content: ""; inset: 0; opacity: 0; position: absolute; transition: opacity .25s ease; }
 .project-visual:hover:after { opacity: 1; }
 .visual-vr { background-image: url("../images/img-1.jpg"); }
+.visual-mocap { background-image: url("../projetos-pessoais/mocap/imgs/retargeting.png"); }
 .visual-sandbox { background-image: url("../images/img-2.jpg"); }
 .visual-data { background-color: #07110e; background-image: url("../images/analise-visual-partidas.png"); background-size: contain; }
 .visual-psxg { background-image: url("../images/visualizacao-psxg.png"); }
