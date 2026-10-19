@@ -176,7 +176,6 @@ legend, .control-label, .event-filter summary { color: var(--muted); font-size: 
   right: 4px;
   left: 4px;
   height: 5px;
-  overflow: hidden;
   border-radius: 999px;
   background: #dce4e0;
   transform: translateY(-50%);
@@ -188,8 +187,14 @@ legend, .control-label, .event-filter summary { color: var(--muted); font-size: 
   bottom: 0;
   left: var(--range-start);
   right: calc(100% - var(--range-end));
+  border-radius: 999px;
   background: var(--accent);
+  cursor: grab;
+  touch-action: none;
 }
+
+.range-selection::before { position: absolute; inset: -10px 0; content: ""; }
+.range-slider.is-dragging .range-selection { cursor: grabbing; }
 
 .range-slider input[type="range"] {
   position: absolute;

@@ -22,6 +22,7 @@ const elements = {
   minuteStart: document.querySelector("#minute-start"),
   minuteEnd: document.querySelector("#minute-end"),
   minuteRange: document.querySelector("#minute-range"),
+  minuteSelection: document.querySelector(".range-selection"),
   minuteStartValue: document.querySelector("#minute-start-value"),
   minuteEndValue: document.querySelector("#minute-end-value"),
   touchFilter: document.querySelector("#touch-filter"),
@@ -292,6 +293,53 @@ function resetFilters() {
   for (const input of elements.eventTypeOptions.querySelectorAll("input")) input.checked = true;
   render();
 }
+
+let minuteRangeDrag = null;
+
+elements.minuteSelection.addEventListener("pointerdown", (event) => {
+  const trackWidth = elements.minuteSelection.parentElement.getBoundingClientRect().width;
+  if (!trackWidth) return;
+
+  minuteRangeDrag = {
+    pointerId: event.pointerId,
+    pointerStart: event.clientX,
+    minuteStart: Number(elements.minuteStart.value),
+    minuteEnd: Number(elements.minuteEnd.value),
+    trackWidth,
+  };
+  elements.minuteSelection.setPointerCapture(event.pointerId);
+  elements.minuteRange.classList.add("is-dragging");
+  event.preventDefault();
+});
+
+elements.minuteSelection.addEventListener("pointermove", (event) => {
+  if (!minuteRangeDrag || event.pointerId !== minuteRangeDrag.pointerId) return;
+
+  const minimum = Number(elements.minuteStart.min);
+  const maximum = Number(elements.minuteStart.max);
+  const minuteSpan = maximum - minimum;
+  const pointerDelta = event.clientX - minuteRangeDrag.pointerStart;
+  let minuteDelta = Math.round(pointerDelta / minuteRangeDrag.trackWidth * minuteSpan);
+  minuteDelta = Math.max(minimum - minuteRangeDrag.minuteStart, minuteDelta);
+  minuteDelta = Math.min(maximum - minuteRangeDrag.minuteEnd, minuteDelta);
+
+  const nextStart = minuteRangeDrag.minuteStart + minuteDelta;
+  const nextEnd = minuteRangeDrag.minuteEnd + minuteDelta;
+  if (Number(elements.minuteStart.value) === nextStart && Number(elements.minuteEnd.value) === nextEnd) return;
+
+  elements.minuteStart.value = nextStart;
+  elements.minuteEnd.value = nextEnd;
+  render();
+});
+
+function stopMinuteRangeDrag(event) {
+  if (!minuteRangeDrag || event.pointerId !== minuteRangeDrag.pointerId) return;
+  minuteRangeDrag = null;
+  elements.minuteRange.classList.remove("is-dragging");
+}
+
+elements.minuteSelection.addEventListener("pointerup", stopMinuteRangeDrag);
+elements.minuteSelection.addEventListener("pointercancel", stopMinuteRangeDrag);
 
 elements.minuteStart.addEventListener("input", () => {
   if (Number(elements.minuteStart.value) > Number(elements.minuteEnd.value)) {
